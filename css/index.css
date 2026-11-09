@@ -127,11 +127,10 @@ header.site {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  min-height: 96px;
+  min-height: 132px;
 }
 .brand img {
-  height: 84px;
+  height: 110px;
   width: auto;
 }
 .nav ul {
@@ -515,7 +514,7 @@ footer.site a:hover {
 }
 
 footer.site .brand img {
-  height: 64px;
+  height: 110px;
   background: #fff;
   border-radius: 10px;
   padding: 6px;
@@ -525,7 +524,7 @@ footer.site .brand img {
   border-top: 1px solid #263041;
   
   margin-top: 40px;
-  padding-top: 20px;
+  padding: 6px;
   font-size: .85rem;
   display: flex;
   flex-wrap: wrap;
