@@ -1,4 +1,6 @@
-// Mobile menu
+/* -----------------------------------------------------------------------
+  MOBILE MENU
+  ------------------------------------------------------------------------ */
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.getElementById('menu');
 
@@ -14,13 +16,17 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Contact form validation + submission
+
+/* -----------------------------------------------------------------------
+  CONTACT FORM: Validation & Submission
+  ------------------------------------------------------------------------ */
 const form = document.getElementById('contactForm');
 const status = form.querySelector('.form-status');
 const submitBtn = form.querySelector('button[type="submit"]');
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const phoneRe = /^[0-9+()\-.\s]{7,20}$/;
 
+// validation
 function setError(field, msg) {
   field.classList.toggle('invalid', !!msg);
   field.querySelector('.err').textContent = msg || '';
@@ -56,7 +62,7 @@ form.addEventListener('submit', async e => {
   status.textContent = '';
   status.className = 'form-status';
 
-  // Honeypot: silently stop if a bot filled the hidden field
+  // bot
   if (form.website.value) return;
 
   if (!validate()) {
@@ -68,15 +74,24 @@ form.addEventListener('submit', async e => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
 
+  // submission
   try {
-    // TODO: Connect to your backend or form service (see notes).
-    // Example: const res = await fetch('/contact.php', { method: 'POST', body: new FormData(form) });
-    await new Promise(r => setTimeout(r, 800)); // placeholder for the real request
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.errors ? data.errors.map(e => e.message).join(' ') : 'Sorry, something went wrong.');
+    }
     form.reset();
     status.textContent = 'Thank you! Your message has been sent. We will be in touch shortly.';
     status.classList.add('ok');
   } catch (err) {
-    status.textContent = 'Something went wrong. Please call 289-314-3990 or email us directly.';
+    // network failures; server errors show Formspree's message
+    const msg = (err instanceof TypeError) ? '' : err.message;
+    status.textContent = msg || 'Something went wrong. Please call 289-314-3990 or email us directly.';
     status.classList.add('fail');
   } finally {
     submitBtn.disabled = false;
