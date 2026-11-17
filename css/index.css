@@ -40,7 +40,7 @@ a {
   color: var(--blue);
 }
 
-.wrap {
+.container {
   width: min(var(--max),100% - 32px);
   margin-inline: auto;
 }
@@ -173,7 +173,7 @@ header.site {
 .hero {
   position: relative;
   color: #fff;
-  padding: 110px 0 120px;
+  padding: 100px 30px;
   background: linear-gradient(120deg,rgba(22,63,121,.94) 0%,rgba(31,91,168,.86) 55%,rgba(214,45,42,.78) 100%),
   repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 2px,transparent 2px 14px),#163f79;
 }
@@ -485,7 +485,7 @@ footer.site {
 .foot-grid {
   display: grid;
   gap: 36px;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
 }
 
 footer.site h3 {
@@ -515,14 +515,21 @@ footer.site a:hover {
 
 footer.site .brand img {
   height: 110px;
-  background: #fff;
+  width: auto;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  /* background: #fff; */
   border-radius: 10px;
-  padding: 6px;
+  /* padding: 6px; */
+}
+.cert {
+  height: 40px;
+  width: auto;
 }
 
 .copy {
+  align-items: center;
   border-top: 1px solid #263041;
-  
   margin-top: 40px;
   padding: 6px;
   font-size: .85rem;
