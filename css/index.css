@@ -173,7 +173,7 @@ header.site {
 .hero {
   position: relative;
   color: #fff;
-  padding: 100px 30px;
+  padding: 100px 0;
   background: linear-gradient(120deg,rgba(22,63,121,.94) 0%,rgba(31,91,168,.86) 55%,rgba(214,45,42,.78) 100%),
   repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 2px,transparent 2px 14px),#163f79;
 }
