@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/abufirec/public_html/
+    - /bin/cp -R index.html css js assets $DEPLOYPATH
