@@ -88,13 +88,13 @@ section {
 /* BUTTONS */
 .btn {
   display: inline-block;
-  padding: .85rem 1.5rem;
+  padding: .5rem;
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
   border: 2px solid transparent;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: .8rem;
   font-family: inherit;
   transition: background .2s,color .2s,border-color .2s;
 }
@@ -150,7 +150,7 @@ header.site {
   min-height: 132px;
 }
 .brand img {
-  height: 110px;
+  height: 134px;
   width: auto;
 }
 .nav ul {
@@ -184,7 +184,7 @@ header.site {
   display: none;
   background: none;
   border: 0;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   cursor: pointer;
   color: var(--ink);
 }
@@ -610,7 +610,8 @@ footer.site .brand img {
   }
 
   .brand img {
-    height: 64px;
+    height: 130px;
+    width: auto;
   }
 
   form.contact {
