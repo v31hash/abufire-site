@@ -17,7 +17,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            set -e
             cd ~/repositories/abufire-site
             git fetch origin main
             git reset --hard origin/main
-            uapi VersionControlDeployment create repository=abufire-site
+            out=$(uapi --output=json VersionControlDeployment create repository_root=$HOME/repositories/abufire-site)
+            echo "$out"
+            echo "$out" | grep -q '"status":1' || { echo "cPanel deployment failed"; exit 1; }
